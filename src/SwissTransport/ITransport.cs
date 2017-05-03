@@ -6,4 +6,8 @@
         StationBoardRoot GetStationBoard(string station, string id);
         Connections GetConnections(string fromStation, string toStattion);
     }
+
+    /*public class ITransport
+    {
+    }*/
 }
