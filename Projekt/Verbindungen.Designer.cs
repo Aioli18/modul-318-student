@@ -28,70 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnComplete = new System.Windows.Forms.Button();
+            this.btnCoBoxComplete = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.coBoxEnd = new System.Windows.Forms.ComboBox();
-            this.coBoxStart = new System.Windows.Forms.ComboBox();
-            this.btnStation = new System.Windows.Forms.Button();
+            this.checkAutocomplete = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lvVerbindung = new System.Windows.Forms.ListView();
+            this.coBoxTo = new System.Windows.Forms.ComboBox();
+            this.coBoxFrom = new System.Windows.Forms.ComboBox();
+            this.btnCoBoxVerbindung = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnComplete
+            // btnCoBoxComplete
             // 
-            this.btnComplete.Location = new System.Drawing.Point(38, 35);
-            this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(75, 23);
-            this.btnComplete.TabIndex = 0;
-            this.btnComplete.Text = "verbindung";
-            this.btnComplete.UseVisualStyleBackColor = true;
-            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
+            this.btnCoBoxComplete.Location = new System.Drawing.Point(38, 116);
+            this.btnCoBoxComplete.Name = "btnCoBoxComplete";
+            this.btnCoBoxComplete.Size = new System.Drawing.Size(140, 23);
+            this.btnCoBoxComplete.TabIndex = 0;
+            this.btnCoBoxComplete.Text = "Suche Die Station";
+            this.btnCoBoxComplete.UseVisualStyleBackColor = true;
+            this.btnCoBoxComplete.Click += new System.EventHandler(this.btnCoBoxComplete_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listView1);
-            this.panel1.Controls.Add(this.coBoxEnd);
-            this.panel1.Controls.Add(this.coBoxStart);
-            this.panel1.Controls.Add(this.btnStation);
-            this.panel1.Controls.Add(this.btnComplete);
+            this.panel1.Controls.Add(this.checkAutocomplete);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.lvVerbindung);
+            this.panel1.Controls.Add(this.coBoxTo);
+            this.panel1.Controls.Add(this.coBoxFrom);
+            this.panel1.Controls.Add(this.btnCoBoxVerbindung);
+            this.panel1.Controls.Add(this.btnCoBoxComplete);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 343);
+            this.panel1.Size = new System.Drawing.Size(833, 340);
             this.panel1.TabIndex = 1;
             // 
-            // listView1
+            // checkAutocomplete
             // 
-            this.listView1.Location = new System.Drawing.Point(38, 93);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(440, 168);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.checkAutocomplete.AutoSize = true;
+            this.checkAutocomplete.Location = new System.Drawing.Point(38, 93);
+            this.checkAutocomplete.Name = "checkAutocomplete";
+            this.checkAutocomplete.Size = new System.Drawing.Size(91, 17);
+            this.checkAutocomplete.TabIndex = 6;
+            this.checkAutocomplete.Text = "Autocomplete";
+            this.checkAutocomplete.UseVisualStyleBackColor = true;
             // 
-            // coBoxEnd
+            // dateTimePicker1
             // 
-            this.coBoxEnd.FormattingEnabled = true;
-            this.coBoxEnd.Location = new System.Drawing.Point(165, 65);
-            this.coBoxEnd.Name = "coBoxEnd";
-            this.coBoxEnd.Size = new System.Drawing.Size(121, 21);
-            this.coBoxEnd.TabIndex = 3;
+            this.dateTimePicker1.Location = new System.Drawing.Point(38, 145);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
+            this.dateTimePicker1.TabIndex = 5;
             // 
-            // coBoxStart
+            // lvVerbindung
             // 
-            this.coBoxStart.FormattingEnabled = true;
-            this.coBoxStart.Location = new System.Drawing.Point(38, 65);
-            this.coBoxStart.Name = "coBoxStart";
-            this.coBoxStart.Size = new System.Drawing.Size(121, 21);
-            this.coBoxStart.TabIndex = 2;
+            this.lvVerbindung.Location = new System.Drawing.Point(184, 38);
+            this.lvVerbindung.Name = "lvVerbindung";
+            this.lvVerbindung.Size = new System.Drawing.Size(423, 182);
+            this.lvVerbindung.TabIndex = 4;
+            this.lvVerbindung.UseCompatibleStateImageBehavior = false;
             // 
-            // btnStation
+            // coBoxTo
             // 
-            this.btnStation.Location = new System.Drawing.Point(206, 34);
-            this.btnStation.Name = "btnStation";
-            this.btnStation.Size = new System.Drawing.Size(75, 23);
-            this.btnStation.TabIndex = 1;
-            this.btnStation.Text = "button2";
-            this.btnStation.UseVisualStyleBackColor = true;
-            this.btnStation.Click += new System.EventHandler(this.btnStation_Click);
+            this.coBoxTo.FormattingEnabled = true;
+            this.coBoxTo.Location = new System.Drawing.Point(38, 65);
+            this.coBoxTo.Name = "coBoxTo";
+            this.coBoxTo.Size = new System.Drawing.Size(140, 21);
+            this.coBoxTo.TabIndex = 2;
+            this.coBoxTo.TextUpdate += new System.EventHandler(this.coBoxTo_TextUpdate);
+            // 
+            // coBoxFrom
+            // 
+            this.coBoxFrom.FormattingEnabled = true;
+            this.coBoxFrom.Location = new System.Drawing.Point(38, 38);
+            this.coBoxFrom.Name = "coBoxFrom";
+            this.coBoxFrom.Size = new System.Drawing.Size(140, 21);
+            this.coBoxFrom.TabIndex = 1;
+            this.coBoxFrom.TextUpdate += new System.EventHandler(this.coBoxFrom_TextUpdate);
+            // 
+            // btnCoBoxVerbindung
+            // 
+            this.btnCoBoxVerbindung.Location = new System.Drawing.Point(38, 171);
+            this.btnCoBoxVerbindung.Name = "btnCoBoxVerbindung";
+            this.btnCoBoxVerbindung.Size = new System.Drawing.Size(140, 23);
+            this.btnCoBoxVerbindung.TabIndex = 3;
+            this.btnCoBoxVerbindung.Text = "Suche";
+            this.btnCoBoxVerbindung.UseVisualStyleBackColor = true;
+            this.btnCoBoxVerbindung.Click += new System.EventHandler(this.btnCoBoxVerbindung_Click);
             // 
             // Verbindungen
             // 
@@ -101,18 +124,21 @@
             this.Name = "Verbindungen";
             this.Size = new System.Drawing.Size(836, 343);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnComplete;
+        private System.Windows.Forms.Button btnCoBoxComplete;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnStation;
-        private System.Windows.Forms.ComboBox coBoxEnd;
-        private System.Windows.Forms.ComboBox coBoxStart;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button btnCoBoxVerbindung;
+        private System.Windows.Forms.ComboBox coBoxTo;
+        private System.Windows.Forms.ComboBox coBoxFrom;
+        private System.Windows.Forms.ListView lvVerbindung;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox checkAutocomplete;
 
     }
 }

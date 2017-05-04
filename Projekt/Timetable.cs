@@ -17,63 +17,37 @@ namespace Projekt
         {
             InitializeComponent();
 
-            listView1.View = View.Details;
-            listView1.GridLines = true;
-            listView1.FullRowSelect = true;
-            listView1.Columns.Add("Zeit", 100);
-            listView1.Columns.Add("Mit", 100);
-            listView1.Columns.Add("Nach", 170);
+            lvTimetable.View = View.Details;
+            lvTimetable.GridLines = true;
+            lvTimetable.FullRowSelect = true;
+            lvTimetable.Columns.Add("Zeit", 100);
+            lvTimetable.Columns.Add("Mit", 100);
+            lvTimetable.Columns.Add("Nach", 170);
         }
 
-        private ITransport testee;
-
-        private void Timetable_Load(object sender, EventArgs e)
+        private void btnCoBoxComplete_Click(object sender, EventArgs e)
         {
-
+            SucheTimetable SucheTimetable = new SucheTimetable();
+            SucheTimetable.TTSucheComplete(coBox);
         }
 
-        private void btnCoBox_Click(object sender, EventArgs e)
+        private void btnCoBoxVerbindung_Click(object sender, EventArgs e)
         {
-            testee = new Transport();
-
-            while (coBox.Items.Count > 0)
-            {
-                coBox.Items.RemoveAt(0);
-
-            }
-
-            var station = testee.GetStations(coBox.Text);
-
-            for (int i = 0; i < station.StationList.Count; i++)
-            {
-                Station res = station.StationList[i];
-                coBox.Items.Add(res.Name);
-            }
+            SucheTimetable SucheTimetable = new SucheTimetable();
+            SucheTimetable.TTSucheVerbindung(coBox, lvTimetable);
         }
 
-        private void btnSucheVerb_Click(object sender, EventArgs e)
-        { 
-            while (listView1.Items.Count > 0)
-            {
-                listView1.Items.RemoveAt(0);
-            }
+        private void coBox_TextUpdate(object sender, EventArgs e)
+        {
+            Autocomplete Autocomplete = new Autocomplete();
+            Autocomplete.autocomplete(coBox, checkAutocomplete);
+        }
 
-            testee = new Transport();
-
-            Stations stations = testee.GetStations(coBox.Text);
-            Station station = stations.StationList[0];
-            String id = station.Id;
-
-            StationBoardRoot timetable = testee.GetStationBoard(coBox.Text, id);
-
-            foreach(StationBoard entries in timetable.Entries)
-            {
-                TimeSpan tod = entries.Stop.Departure.TimeOfDay;                            
-                string depastr = tod.ToString();
-                string depa = depastr.Remove(5,3);
-                var item = new ListViewItem(new[] { depa, entries.Name, entries.To });
-                listView1.Items.Add(item);
-            }
+        private void linkCoordinates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StationCoordinate StationCoordinate = new StationCoordinate();
+            StationCoordinate.stationCoordinates(coBox);
         }
     }
 }
+
