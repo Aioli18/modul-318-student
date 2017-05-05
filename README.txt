@@ -4,3 +4,6 @@ Um zu installieren einfach das setup.exe starten und bei späterem gebrauch einfa
 
 Deinstallationsanleitung
 Wenn das Programm nicht mehr gebraucht wird, kann es in der Systemsteuerung unter Programme Deinstallieren gelöscht werden. (Name des Programms ist Projekt)
+
+Falls der Publish Ordner nicht vorhanden ist
+https://drive.google.com/open?id=0BweapwYInLzQdEc4eThXQjdfOUU
