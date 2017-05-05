@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SwissTransport;
 using System.Windows.Forms;
+using System.Net;
 
 namespace Projekt
 {
@@ -12,55 +13,66 @@ namespace Projekt
     {
         public ITransport SwissTrans;
 
-        public void TTSucheVerbindung(ComboBox coBox, ListView lv)
+
+        public void TimeTableSucheVerbindung(ComboBox coBox, ListView lv)
         {
             lv.Items.Clear();
 
-
-
             SwissTrans = new Transport();
-
-            Stations stations = SwissTrans.GetStations(coBox.Text);
-
-
-            if (stations.StationList.Count > 0)
+            try
             {
-                Station station = stations.StationList[0];
-                String id = station.Id;
-                StationBoardRoot timetable = SwissTrans.GetStationBoard(coBox.Text, id);
-                foreach (StationBoard entries in timetable.Entries)
+                Stations stations = SwissTrans.GetStations(coBox.Text);
+
+                if (stations.StationList.Count > 0)
                 {
-                    TimeSpan tod = entries.Stop.Departure.TimeOfDay;
-                    string depastr = tod.ToString();
-                    string depa = depastr.Remove(5, 3);
-                    var item = new ListViewItem(new[] { depa, entries.Name, entries.To });
-                    lv.Items.Add(item);
+                    Station station = stations.StationList[0];
+                    String id = station.Id;
+                    StationBoardRoot timetable = SwissTrans.GetStationBoard(coBox.Text, id);
+                    foreach (StationBoard entries in timetable.Entries)
+                    {
+                        TimeSpan tod = entries.Stop.Departure.TimeOfDay;
+                        string depastr = tod.ToString();
+                        string depa = depastr.Remove(5, 3);
+                        var item = new ListViewItem(new[] { depa, entries.Name, entries.To });
+                        lv.Items.Add(item);
+                        coBox.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Geben Sie Bitte im Suchfeld eine Station ein");
                 }
             }
-            else
+            catch (WebException)
             {
-                MessageBox.Show("Geben Sie Bitte im Suchfeld eine Station ein");
+                MessageBox.Show("Zu viele Webanfragen");
             }
         }
-
-        public void TTSucheComplete(ComboBox coBox)
+        
+        public void TimeTableSucheComplete(ComboBox coBox)
         {
             coBox.Items.Clear();
-
-            SwissTrans = new Transport();
-            var station = SwissTrans.GetStations(coBox.Text);
-
-            if (station.StationList.Count > 0)
+            try
             {
-                for (int i = 0; i < station.StationList.Count; i++)
+                SwissTrans = new Transport();
+                var station = SwissTrans.GetStations(coBox.Text);
+
+                if (station.StationList.Count > 0)
                 {
-                    Station res = station.StationList[i];
-                    coBox.Items.Add(res.Name);
+                    for (int i = 0; i < station.StationList.Count; i++)
+                    {
+                        Station res = station.StationList[i];
+                        coBox.Items.Add(res.Name);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Geben Sie Bitte im Suchfeld eine Station ein");
                 }
             }
-            else
+            catch (WebException)
             {
-                MessageBox.Show("Geben Sie Bitte im Suchfeld eine Station ein");
+                MessageBox.Show("Zu viele Webanfragen");
             }
         }
     }

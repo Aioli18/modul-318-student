@@ -28,13 +28,13 @@ namespace Projekt
         private void btnCoBoxComplete_Click(object sender, EventArgs e)
         {
             SucheTimetable SucheTimetable = new SucheTimetable();
-            SucheTimetable.TTSucheComplete(coBox);
+            SucheTimetable.TimeTableSucheComplete(coBox);
         }
 
         private void btnCoBoxVerbindung_Click(object sender, EventArgs e)
         {
             SucheTimetable SucheTimetable = new SucheTimetable();
-            SucheTimetable.TTSucheVerbindung(coBox, lvTimetable);
+            SucheTimetable.TimeTableSucheVerbindung(coBox, lvTimetable);
         }
 
         private void coBox_TextUpdate(object sender, EventArgs e)
@@ -45,8 +45,16 @@ namespace Projekt
 
         private void linkCoordinates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            StationCoordinate StationCoordinate = new StationCoordinate();
-            StationCoordinate.stationCoordinates(coBox);
+            StationGetCoordinate StationCoordinate = new StationGetCoordinate();
+            StationCoordinate.stationGetCoordinates(coBox);
+        }
+
+        private void coBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCoBoxVerbindung_Click((object)sender, (EventArgs)e);
+            }
         }
     }
 }

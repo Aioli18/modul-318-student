@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using SwissTransport;
 using System.Windows.Forms;
+using System.Net;
 
 namespace Projekt
 {
     class Autocomplete
     {
-
         public ITransport transport = new Transport();
         public Connections connection = new Connections();
 
@@ -18,23 +18,28 @@ namespace Projekt
         {
             if (checkBox.Checked)
             {
-                if (coBox.Text.Count() > 3)
+                try
                 {
-                    var searchFrom = coBox.Text;
-                    var stationsFrom = transport.GetStations(searchFrom + ",");
-                    coBox.Items.Clear();
-
-                    foreach (Station station in stationsFrom.StationList)
+                    if (coBox.Text.Count() > 3)
                     {
-                        string sFrom = station.Name;
-                        coBox.SelectionStart = coBox.Text.Length;
-                        coBox.Items.Add(sFrom);
-                        coBox.DroppedDown = true;
+                        var searchFrom = coBox.Text;
+                        var stationsFrom = transport.GetStations(searchFrom + ",");
+                        coBox.Items.Clear();
+
+                        foreach (Station station in stationsFrom.StationList)
+                        {
+                            string sFrom = station.Name;
+                            coBox.SelectionStart = coBox.Text.Length;
+                            coBox.Items.Add(sFrom);
+                            coBox.DroppedDown = true;
+                        }
                     }
+                }
+                catch (WebException)
+                {
+                    MessageBox.Show("Zu viele Webanfragen");
                 }
             }
         }
-
-        
     }
 }

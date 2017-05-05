@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.btnCoBoxComplete = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pannelVerbindungen = new System.Windows.Forms.Panel();
             this.checkAutocomplete = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lvVerbindung = new System.Windows.Forms.ListView();
             this.coBoxTo = new System.Windows.Forms.ComboBox();
             this.coBoxFrom = new System.Windows.Forms.ComboBox();
             this.btnCoBoxVerbindung = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pannelVerbindungen.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCoBoxComplete
@@ -45,23 +45,23 @@
             this.btnCoBoxComplete.Name = "btnCoBoxComplete";
             this.btnCoBoxComplete.Size = new System.Drawing.Size(140, 23);
             this.btnCoBoxComplete.TabIndex = 0;
-            this.btnCoBoxComplete.Text = "Suche Die Station";
+            this.btnCoBoxComplete.Text = "Station Suchen";
             this.btnCoBoxComplete.UseVisualStyleBackColor = true;
             this.btnCoBoxComplete.Click += new System.EventHandler(this.btnCoBoxComplete_Click);
             // 
-            // panel1
+            // pannelVerbindungen
             // 
-            this.panel1.Controls.Add(this.checkAutocomplete);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.lvVerbindung);
-            this.panel1.Controls.Add(this.coBoxTo);
-            this.panel1.Controls.Add(this.coBoxFrom);
-            this.panel1.Controls.Add(this.btnCoBoxVerbindung);
-            this.panel1.Controls.Add(this.btnCoBoxComplete);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(833, 340);
-            this.panel1.TabIndex = 1;
+            this.pannelVerbindungen.Controls.Add(this.checkAutocomplete);
+            this.pannelVerbindungen.Controls.Add(this.dateTimePicker1);
+            this.pannelVerbindungen.Controls.Add(this.lvVerbindung);
+            this.pannelVerbindungen.Controls.Add(this.coBoxTo);
+            this.pannelVerbindungen.Controls.Add(this.coBoxFrom);
+            this.pannelVerbindungen.Controls.Add(this.btnCoBoxVerbindung);
+            this.pannelVerbindungen.Controls.Add(this.btnCoBoxComplete);
+            this.pannelVerbindungen.Location = new System.Drawing.Point(0, 0);
+            this.pannelVerbindungen.Name = "pannelVerbindungen";
+            this.pannelVerbindungen.Size = new System.Drawing.Size(836, 340);
+            this.pannelVerbindungen.TabIndex = 1;
             // 
             // checkAutocomplete
             // 
@@ -112,7 +112,7 @@
             this.btnCoBoxVerbindung.Name = "btnCoBoxVerbindung";
             this.btnCoBoxVerbindung.Size = new System.Drawing.Size(140, 23);
             this.btnCoBoxVerbindung.TabIndex = 3;
-            this.btnCoBoxVerbindung.Text = "Suche";
+            this.btnCoBoxVerbindung.Text = "Verbindungen Suchen";
             this.btnCoBoxVerbindung.UseVisualStyleBackColor = true;
             this.btnCoBoxVerbindung.Click += new System.EventHandler(this.btnCoBoxVerbindung_Click);
             // 
@@ -120,11 +120,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pannelVerbindungen);
             this.Name = "Verbindungen";
             this.Size = new System.Drawing.Size(836, 343);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pannelVerbindungen.ResumeLayout(false);
+            this.pannelVerbindungen.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -132,7 +132,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnCoBoxComplete;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pannelVerbindungen;
         private System.Windows.Forms.Button btnCoBoxVerbindung;
         private System.Windows.Forms.ComboBox coBoxTo;
         private System.Windows.Forms.ComboBox coBoxFrom;

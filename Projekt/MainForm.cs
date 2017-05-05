@@ -9,23 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
 using System.Globalization;
+using System.Net;
 
 
 
 namespace Projekt
 {
-
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        Verbindungen verbindungen = new Verbindungen();
 
+        Verbindungen verbindungen = new Verbindungen();
         Timetable timetable = new Timetable();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             panelUserControll.Controls.Add(timetable);
-
         }
 
         private void timetableToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,22 +39,12 @@ namespace Projekt
             panelUserControll.Controls.Add(verbindungen);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-
+            if (!TryConnection.CheckForInternetConnection())
+            {
+                MessageBox.Show("Fehler, Du hast keine Internetverbindung");
+            }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

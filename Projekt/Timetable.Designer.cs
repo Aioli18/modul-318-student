@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pannelTimeTable = new System.Windows.Forms.Panel();
             this.checkAutocomplete = new System.Windows.Forms.CheckBox();
             this.linkCoordinates = new System.Windows.Forms.LinkLabel();
             this.btnCoBoxVerbindung = new System.Windows.Forms.Button();
             this.btnCoBoxComplete = new System.Windows.Forms.Button();
             this.coBox = new System.Windows.Forms.ComboBox();
             this.lvTimetable = new System.Windows.Forms.ListView();
-            this.panel1.SuspendLayout();
+            this.pannelTimeTable.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pannelTimeTable
             // 
-            this.panel1.Controls.Add(this.checkAutocomplete);
-            this.panel1.Controls.Add(this.linkCoordinates);
-            this.panel1.Controls.Add(this.btnCoBoxVerbindung);
-            this.panel1.Controls.Add(this.btnCoBoxComplete);
-            this.panel1.Controls.Add(this.coBox);
-            this.panel1.Controls.Add(this.lvTimetable);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(833, 340);
-            this.panel1.TabIndex = 1;
+            this.pannelTimeTable.Controls.Add(this.checkAutocomplete);
+            this.pannelTimeTable.Controls.Add(this.linkCoordinates);
+            this.pannelTimeTable.Controls.Add(this.btnCoBoxVerbindung);
+            this.pannelTimeTable.Controls.Add(this.btnCoBoxComplete);
+            this.pannelTimeTable.Controls.Add(this.coBox);
+            this.pannelTimeTable.Controls.Add(this.lvTimetable);
+            this.pannelTimeTable.Location = new System.Drawing.Point(3, 3);
+            this.pannelTimeTable.Name = "pannelTimeTable";
+            this.pannelTimeTable.Size = new System.Drawing.Size(833, 340);
+            this.pannelTimeTable.TabIndex = 1;
             // 
             // checkAutocomplete
             // 
@@ -64,12 +64,12 @@
             // linkCoordinates
             // 
             this.linkCoordinates.AutoSize = true;
-            this.linkCoordinates.Location = new System.Drawing.Point(46, 157);
+            this.linkCoordinates.Location = new System.Drawing.Point(70, 157);
             this.linkCoordinates.Name = "linkCoordinates";
-            this.linkCoordinates.Size = new System.Drawing.Size(55, 13);
+            this.linkCoordinates.Size = new System.Drawing.Size(70, 13);
             this.linkCoordinates.TabIndex = 4;
             this.linkCoordinates.TabStop = true;
-            this.linkCoordinates.Text = "linkLabel1";
+            this.linkCoordinates.Text = "Google Maps";
             this.linkCoordinates.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCoordinates_LinkClicked);
             // 
             // btnCoBoxVerbindung
@@ -78,7 +78,7 @@
             this.btnCoBoxVerbindung.Name = "btnCoBoxVerbindung";
             this.btnCoBoxVerbindung.Size = new System.Drawing.Size(121, 23);
             this.btnCoBoxVerbindung.TabIndex = 3;
-            this.btnCoBoxVerbindung.Text = "Verbindungen";
+            this.btnCoBoxVerbindung.Text = "Timetable Suchen";
             this.btnCoBoxVerbindung.UseVisualStyleBackColor = true;
             this.btnCoBoxVerbindung.Click += new System.EventHandler(this.btnCoBoxVerbindung_Click);
             // 
@@ -100,6 +100,7 @@
             this.coBox.Size = new System.Drawing.Size(121, 21);
             this.coBox.TabIndex = 1;
             this.coBox.TextUpdate += new System.EventHandler(this.coBox_TextUpdate);
+            this.coBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.coBox_KeyDown);
             // 
             // lvTimetable
             // 
@@ -113,18 +114,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pannelTimeTable);
             this.Name = "Timetable";
             this.Size = new System.Drawing.Size(836, 343);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pannelTimeTable.ResumeLayout(false);
+            this.pannelTimeTable.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pannelTimeTable;
         private System.Windows.Forms.Button btnCoBoxComplete;
         private System.Windows.Forms.ComboBox coBox;
         private System.Windows.Forms.ListView lvTimetable;
